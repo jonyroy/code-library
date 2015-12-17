@@ -1,0 +1,22 @@
+pis OpenPGP</comment>
+    <comment xml:lang="be@latin">adłučany podpis OpenPGP</comment>
+    <comment xml:lang="bg">Отделен подпис — OpenPGP</comment>
+    <comment xml:lang="bo">ཁ་བྲལ་བའི་ OpenPGP ས་ཡིག</comment>
+    <comment xml:lang="bs">odvojeni OpenPGP potpis</comment>
+    <comment xml:lang="ca">signatura OpenPGP separada</comment>
+    <comment xml:lang="cs">Oddělený podpis OpenPGP</comment>
+    <comment xml:lang="da">frigjort OpenPGP-signatur</comment>
+    <comment xml:lang="de">Isolierte OpenPGP-Signatur</comment>
+    <comment xml:lang="el">αποκομμένη υπογραφή OpenPGP</comment>
+    <comment xml:lang="en_AU">detached OpenPGP signature</comment>
+    <comment xml:lang="en_GB">detached OpenPGP signature</comment>
+    <comment xml:lang="eo">dekroĉa OpenPGP-subskribo</comment>
+    <comment xml:lang="es">firma OpenPGP separada</comment>
+    <comment xml:lang="eu">desuzturtako OpenPGP sinadura</comment>
+    <comment xml:lang="fi">erillinen OpenPGP-allekirjoitus</comment>
+    <comment xml:lang="fo">skild OpenPGP undirskrift</comment>
+    <comment xml:lang="fr">signature OpenPGP détachée</comment>
+    <comment xml:lang="ga">síniú OpenPGP scartha</comment>
+    <comment xml:lang="gl">sinatura de OpenPGP independente</comment>
+    <comment xml:lang="he">חתימת OpenPGP מנותקת</comment>
+    <comment xml:lang="hr">odvojen O

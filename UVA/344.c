@@ -1,0 +1,92 @@
+//Accepted
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int n,r,re,val,i,v,x,l,c;
+    while(scanf("%d",&n))
+    {
+        if(n==0)
+        break;
+        r=0;
+        x=0;
+        l=0;
+        c=0;
+        val=n/10;
+        re=n%10;
+        i=val*14;
+        v=val*5;
+        if(re>=1&&re<=3)
+        {
+        r=(re*(re+1))/2;
+        }
+        else
+        {
+            if(re>=4&&re<=8)
+            {
+             if(re==4||re==5)
+             r=r+7;
+             else
+             {
+               if(re>=6&&re<=8)
+               {
+                 r=((re-5)*(re-4))/2;
+                 r=7+r;
+               }
+             }
+             }
+             if(re==9)
+             r=14;
+        }
+         i=i+r;
+         if(re>=4&&re<=8)
+         {
+            v=v+(re-3);
+         }
+         else
+         if(re==9)
+         v=v+5;
+         if(n>=9&&n<=39)
+         {
+             if(n>=9&&n<=18)
+             x=n-8;
+             else if(n>18&&n<=28)
+             x=10+(n-18)*2;
+             else if(n>28&&n<=38)
+             x=30+(n-28)*3;
+             else
+             x=64;
+         }
+         if(n>=40&&n<=48)
+         x=64+(n-39);
+         if(n>=49&&n<=58)
+         x=75;
+         if(n>=59&&n<=89)
+         {
+             if(n>=59&&n<=68)
+             x=75+(n-58);
+             else if(n>=69&&n<=78)
+             x=85+(n-68)*2;
+             else if(n>=79&&n<=88)
+             x=105+(n-78)*3;
+             else
+             x=139;
+         }
+         if(n>=90&&n<=100)
+         {
+             if(n<99)
+             x=139+(n-89);
+             else
+             x=150;
+         }
+         if(n>=40&&n<=89)
+         l=n-39;
+         else
+         if(n>89)
+         l=50;
+         if(n>=90)
+         c=n-89;
+         printf("%d: %d i, %d v, %d x, %d l, %d c\n",n,i,v,x,l,c);
+    }
+    return 0;
+}

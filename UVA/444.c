@@ -1,0 +1,59 @@
+//Accpted
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
+#include<stdbool.h>
+#define MAX 1000
+int main()
+{
+    char a[MAX],b[10],c[MAX];
+    int i,j,k,l,len,val,t;
+    while(gets(a))
+    {
+     len=strlen(a);
+     if(a[0]>=48&&a[0]<=57)
+     {
+         i=len-1;
+         t=0;
+         while(i>=0)
+         {
+             if(a[i]==49&&a[i-1]!=55&&a[i-1]!=56)
+             {
+                 k=i;
+             for(j=0;j<3;j++)
+             {
+                 b[j]=a[k--];
+             }
+             i=i-3;
+             }
+             else
+             {
+                 k=i;
+             for(j=0;j<2;j++)
+             {
+                 b[j]=a[k--];
+             }
+             i=i-2;
+             }
+             b[j]='\0';
+             l=atoi(b);
+             printf("%c",l);
+         }
+         for(j=t-1;j>=0;j--)
+         printf("%c",c[j]);
+     }
+     else
+     for(i=len-1;i>=0;i--)
+     {
+         val=a[i];
+         while(val!=0)
+         {
+          printf("%d",val%10);
+          val=val/10;
+         }
+     }
+     printf("\n");
+    }
+    return 0;
+}

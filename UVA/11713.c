@@ -1,0 +1,49 @@
+//Accepted
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+int main()
+{
+    int n,len1,len2,i,count,coundown,co,cou;
+    char firname[100],secname[100];
+    scanf("%d",&n);
+    while(n)
+    {
+     scanf("%s%s",firname,secname);
+      len1=strlen(firname);
+      len2=strlen(secname);
+      if(len1!=len2)
+      printf("No\n");
+      else
+      {
+          count=0;
+          coundown=0;
+          cou=0;
+          for(i=0;i<len1;i++)
+          {
+              if(firname[i]=='a'||firname[i]=='e'||firname[i]=='i'||firname[i]=='o'||firname[i]=='u')
+              {
+                  cou++;
+                  if(secname[i]=='a'||secname[i]=='e'||secname[i]=='i'||secname[i]=='o'||secname[i]=='u')
+                  {
+                     count++;
+                  }
+              }
+              else
+              {
+               if(firname[i]==secname[i])
+               {
+                   coundown++;
+               }
+              }
+          }
+          co=abs(len1-cou);
+          if(count==count&&coundown==co)
+          printf("Yes\n");
+          else
+          printf("No\n");
+      }
+     n--;
+    }
+    return 0;
+}
