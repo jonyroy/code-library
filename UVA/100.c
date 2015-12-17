@@ -4,6 +4,7 @@
 */
 #include<stdio.h>
 #include<math.h>
+#include<stdlib.h>
 long int cyclelen(long int n);
 long int maximam(long int min,long int max);
 int main()
