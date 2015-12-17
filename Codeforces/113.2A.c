@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<stdlib.h>
+#include<stdbool.h>
+int main()
+{
+    int i,j,n,k,a[60],b[60],count=0,temp,c[60],d[60],p,l;
+    scanf("%d%d",&n,&k);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d%d",&a[i],&b[i]);
+    }
+    for(i=n-2;i>=0;i--)
+    {
+      for(j=0;j<=i;j++)
+      {
+           if(a[j]>=a[j+1])
+           {
+               if(a[j]==a[j+1])
+               {
+                   if(b[j]<b[j+1])
+                   {
+                      temp=b[j];
+                      b[j]=b[j+1];
+                      b[j+1]=temp;
+                   }
+               }
+               else
+               {
+               temp=a[j];
+               a[j]=a[j+1];
+               a[j+1]=temp;
+                temp=b[j];
+                b[j]=b[j+1];
+                b[j+1]=temp;
+               }
+           }
+      }
+  }
+  j=0;
+   for(i=n-1;i>=0;i--)
+    {
+        c[j]=a[i];
+        d[j]=b[i];
+        j++;
+    }
+    p=c[k-1];
+    l=d[k-1];
+     for(i=0;i<n;i++)
+     {
+         if(p==c[i]&&l==d[i])
+         count++;
+     }
+     printf("%d\n",count);
+return 0;
+}

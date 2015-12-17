@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a[10],cnt=0;
+    string s;
+    cin>>a[1]>>a[2]>>a[3]>>a[4];
+    cin>>s;
+    for(int i=0;i<s.length();i++)
+    {
+      cnt+=(a[s[i]-48]);
+    }
+    cout<<cnt<<endl;
+    return 0;
+}
