@@ -1,4 +1,7 @@
-//Accepted
+/*
+   Accepted
+   Be Happy...............
+*/
 #include<stdio.h>
 long int cyclelen(long int n);
 long int maximam(long int min,long int max);
