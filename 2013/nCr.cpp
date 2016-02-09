@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define MAX 100000000
+#define MAX 1000000
+#define MOD 1000005
 vector<int>ncr[MAX];
 int main()
 {
@@ -10,10 +11,10 @@ int main()
   {
       ncr[i].push_back(1);
       for(int j=1;j<i;j++)
-      ncr[i].push_back(ncr[i-1][j]+ncr[i-1][j-1]);
+      ncr[i].push_back((ncr[i-1][j]%MOD+ncr[i-1][j-1]%MOD)%MOD);
       ncr[i].push_back(1);
   }
-  int n,r;
+  long long int  n,r;
   while(cin>>n>>r)
   cout<<ncr[n][r]<<endl;
   return 0;
