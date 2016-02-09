@@ -1,31 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool test(int n)
+long long int prime[2000000];
+long long int PrimeNumber()
 {
-    int m[12]={0};
-    while(n)
+    for(int i=3;i<=sqrt(2000000);i+=2)
     {
-        int b=n%10;
-        m[b]++;
-        n=n/10;
+        if(prime[i]==0)
+        for(int j=i*i;j<=2000000;j+=i)
+            prime[j]=1;
     }
-    for(int i=0;i<10;i++)
-        if(m[i]>1)
-        return false;
-    return true;
+    long long int sum=2;
+    for(int i=3;i<=2000000;i+=2)
+        if(prime[i]==0)
+        sum+=i;
+    return sum;
 }
 int main()
 {
-	set<int> a;
-	for(int i=100;i<=999;i++)
-    {
-        if(i%2)
-        {
-        bool jony=test(i);
-        if(jony)
-            a.insert(i);
-        }
-    }
-    cout<<a.size()<<endl;
-	return 0;
+    cout<<PrimeNumber()<<endl;
+    return 0;
 }
