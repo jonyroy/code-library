@@ -4,11 +4,24 @@
 * Contact: jonyroyice@gmail.com
 */
 #include<bits/stdc++.h>
-using namespace std;
-typedef long long int llint;
 #define MM 2147483647
 #define M 1000000007
-
+#include<bits/stdc++.h>
+#define PI 3.1415926535897932384
+#define p_b(x) push_back(x)
+#define m_p(x) make_pair(x)
+#define ft first
+#define sd second
+using namespace std;
+typedef long long int llint;
+typedef unsigned long long int ullint;
+typedef long int lint;
+typedef unsigned int uint;
+typedef unsigned long int ulint;
+typedef pair<int,int> pint;
+typedef pair<lint,lint> plint;
+typedef pair<llint,llint> pllint;
+llint len;
 llint bigmod(llint a,llint b)
 {
     if(b==0)
@@ -20,10 +33,10 @@ llint bigmod(llint a,llint b)
     return x;
 }
 vector<long long int>prime;
-int primeNumber()
+llint primeNumber()
 {
     llint m=sqrt(MM);
-    bitset<1000000> checkPrime;
+    bitset<10000000> checkPrime;
     prime.push_back(2);
     for(int i=3; i<=sqrt(m); i+=2)
     {
@@ -38,49 +51,55 @@ int primeNumber()
             prime.push_back(i);
     return prime.size();
 }
+int findPrimeFactor(lint *a,lint *b,lint n,lint l)
+{
+    lint sq=sqrt(n);
+    lint k=0;
+    for(lint i=0; i<=l && prime[i]<=sq; i++)
+    {
+        if(n%prime[i]==0)
+        {
+            b[k]=prime[i];
+            while(n%prime[i]==0)
+            {
+                a[k]++;
+                n/=prime[i];
+            }
+            k++;
+        }
+        sq=sqrt(n);
+    }
+    if(n>1)
+    {
+        b[k]=n;
+        a[k]=1;
+        return k;
+    }
+    return k-1;
+
+}
 int main()
 {
     llint a,b;
     int TestCase;
-    long int len=primeNumber()-1;
+    len=primeNumber()-1;
     scanf("%d",&TestCase);
     for(int i=1; i<=TestCase; i++)
     {
+        lint pn[100]= {0},pc[100]= {0};
         scanf("%lld%lld",&a,&b);
-        if(b==0)
+        int kk=findPrimeFactor(pc,pn,a,len);
+        llint  big,inverMod,ans=1;
+        //for(int j=0;j<=kk;j++)
+            //cout<<pn[j]<<" "<<pc[j]<<endl;
+        for(int j=0; j<=kk; j++)
         {
-            printf("Case %d: 1\n",i);
-            continue;
+            big=(bigmod((llint)pn[j],llint(pc[j]*b+1))-1)%M;
+            inverMod=bigmod((llint)(pn[j]-1),(llint)(M-2));
+            //cout<<big<<" "<<inverMod<<endl;
+            ans=(ans*((big*inverMod)%M))%M;
         }
-        llint n=a;
-        unsigned long long int ans=1;
-        for(long int j=0; n>prime[j] && j<=len; j++)
-        {
-            if(n==1)
-                break;
-            int c=0;
-            llint s=1;
-            while(n%prime[j]==0)
-            {
-                n=n/prime[j];
-                ++c;
-            }
-            if(c)
-            {
-                llint kk=(bigmod(prime[j],(unsigned long long )(c*b)+1))%M;
-                kk--;
-                llint ll=bigmod(prime[j]-1,M-2);
-                ans=((ans%M)*((kk*ll)%M))%M;
-            }
-        }
-        if(n>1)
-        {
-            llint kk=(bigmod(n,b+1))%M;
-            kk--;
-            llint ll=bigmod(n-1,M-2);
-            ans=((ans%M)*((kk*ll)%M))%M;
-        }
-        printf("Case %d: %lld\n",i,ans%M);
+        printf("Case %d: %lld\n",i,ans);
     }
     return 0;
 }

@@ -5,33 +5,75 @@
 */
 #include<bits/stdc++.h>
 using namespace std;
-typedef unsigned long long int ulli;
+typedef long long int llint;
+typedef unsigned long long int ullint;
+typedef long int lint;
+typedef unsigned int uint;
+typedef unsigned long int ulint;
+lint findZero(lint n)
+{
+    lint powerOfFive[]= {5,25,125,625,3125,15625,78125,390625,1953125,9765625,48828125,244140625};
+    lint sum=0;
+    for(int i=0; i<=11; i++)
+        sum+=(n/powerOfFive[i]);
+    return sum;
+}
 int main()
 {
-    ulli powerOfFive[]={5,25,125,625,3125,15625,78125,390625,1953125,9765625,48828125,244140625,1220703125};
-    ulli n;
-    ulli a[20];
-    a[0]=1;
-    for(int i=1;i<=12;i++)
+    int TestCase;
+    scanf("%d",&TestCase);
+    int tc=1;
+    while(TestCase--)
     {
-        a[i]=a[i-1]+powerOfFive[i-1];
-//        cout<<a[i]<<endl;
-    }
-    while(cin>>n)
-    {
-        for(int i=0;i<=12;i++)
+        lint m,ans,ok=0;
+        scanf("%ld",&m);
+        lint low=5,high=400000015,mid;
+        while(low<high)
         {
-            if((ulli)(n*powerOfFive[i])%(ulli)a[i]==0)
+            ans=findZero(high);
+            if(ans==m)
             {
-                cout<<(n*powerOfFive[i])<<" "<<a[i]<<" ";
-                ulli b=(n*powerOfFive[i])/a[i];
-                cout<<b<<endl;
+                ok=1;
+                mid=high;
                 break;
             }
+            ans=findZero(low);
+            if(ans==m)
+            {
+                ok=1;
+                mid=low;
+                break;
+            }
+            lint jony=low+high;
+            jony/=2;
+            if(jony%5)
+            {
+                mid=(low+high-5)/2;
+                low=low-5;
+            }
+            else
+                mid=(low+high)/2;
+
+            ans=findZero(mid);
+            if(ans==m)
+            {
+                ok=1;
+                break;
+            }
+            else if(ans>m)
+            {
+                high=mid-5;
+            }
+            else
+            {
+                low=mid+5;
+            }
         }
-        //for(int i=0;i<=12;i++)
-        //sum+=(n/powerOfFive[i]);
-        //cout<<sum<<endl;
+        if(ok)
+            printf("Case %d: %ld\n",tc,mid);
+        else
+            printf("Case %d: impossible\n",tc);
+        tc++;
     }
     return 0;
 }
