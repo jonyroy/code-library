@@ -47,12 +47,12 @@ int mul_int(char *a,long int b,char *c)
 }
 int main()
 {
-    char a[MAX],b[MAX];
-    long int n;
-    while(scanf("%s%ld",a,&n)!=EOF)
-    {
+    char a[MAX]={"111111111"},b[MAX];
+    long int n=8;
+    //while(scanf("%s%ld",a,&n)!=EOF)
+    //{
         mul_int(a,n,b);
         printf("%s\n",b);
-    }
+    //}
     return 0;
 }
