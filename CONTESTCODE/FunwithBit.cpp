@@ -24,13 +24,14 @@ typedef pair<llint,llint>        pllint;
 int main(int argc, char const *argv[])
 {
 	unsigned int number=154245,n;
-    while(cin>>number>>n)
+	cout<<(1<<3)-1<<endl;
+    /*while(cin>>number>>n)
     {
        number |= (1<<n);   //Set nth bit in an unsinged integer
        number &= ~(1<<n);  //Clear nth bit 
        number ^= (1<<n);   //Fliping nth bit
        int bit=(number >>n) && 1;
        cout<<number<<" "<<bit<<endl;
-    }
+    }*/
     return 0;
 }
