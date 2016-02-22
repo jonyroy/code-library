@@ -9,7 +9,7 @@ int base(long n)
 {
     long c,r,b=2;
     if(n==0)
-    return ;
+    return 0;
     c=n/b;
     r=n-b*c;
     if(r<0)
