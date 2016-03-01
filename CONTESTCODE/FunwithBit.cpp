@@ -23,15 +23,20 @@ typedef pair<llint,llint>        pllint;
 
 int main(int argc, char const *argv[])
 {
-	unsigned int number=154245,n;
-	cout<<(1<<3)-1<<endl;
-    /*while(cin>>number>>n)
+	unsigned int number=12,n;
+	cout<<(number&(3))<<endl;
+    while(cin>>number>>n)
     {
        number |= (1<<n);   //Set nth bit in an unsinged integer
        number &= ~(1<<n);  //Clear nth bit 
        number ^= (1<<n);   //Fliping nth bit
+       int check=number & (number-1); // Check Power of 2
+       if(check)
+       	cout<<"No"<<endl;
+       else
+       	cout<<"Yes\n";
        int bit=(number >>n) && 1;
        cout<<number<<" "<<bit<<endl;
-    }*/
+    }
     return 0;
 }
