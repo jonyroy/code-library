@@ -38,7 +38,5 @@ int main(int argc, char const *argv[])
        int bit=(number >>n) && 1;
        cout<<number<<" "<<bit<<endl;
     }
- 
- fadfsdfsdff dsfdfdf sdf
     return 0;
 }
