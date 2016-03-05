@@ -33,12 +33,8 @@ llint BigMod(llint a,llint b,llint MOD)
 }
 int main()
 {
-	int a=0;
-	for(int i=1;i<=2016;i++)
-	{
-      a+=BigMod(i,2016,10);
-      a=a%10;
-    }
+	int a;
+	a=BigMod(3,2016,10);
     cout<<a<<endl;
     return 0;
 }
