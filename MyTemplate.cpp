@@ -1,6 +1,6 @@
 /*
 * Author: Jony Roy
-* Date: 17-02-2016
+* Date: 21-02-2016
 * Contact: jonyroyice@gmail.com
 */
 #include <bits/stdc++.h>
@@ -12,6 +12,7 @@
 #define ft              first
 #define sd              second
 using namespace std;
+typedef double                   ddd;
 typedef long long int            llint;
 typedef unsigned long long int   ullint;
 typedef long int                 lint;
@@ -21,8 +22,11 @@ typedef pair<int,int>            pint;
 typedef pair<lint,lint>          plint;
 typedef pair<llint,llint>        pllint;
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-    
-    return 0;
+        for (int i = 1; i <= argc; ++i)
+        {
+            cout<<argv[i]<<endl;
+        }
+        return 0;
 }
