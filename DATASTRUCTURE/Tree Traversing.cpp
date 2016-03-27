@@ -1,22 +1,10 @@
-#include <list>
-#include <map>
-#include <set>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
-#include <utility>
-#include <algorithm>
-#include <iostream>
-#include <cstring>
-#include <vector>
-#include <cstring>
-#include <cassert>
-#include <ctime>
-#include <stdbool.h>
-
+/*
+* Author: Jony Roy
+* Date: 10-03-2016
+* Contact: jonyroyice@gmail.com
+*/
+#include <bits/stdc++.h>
+using namespace std;
 char str[100]={0};
 int lef[100];
 int righ[100];
