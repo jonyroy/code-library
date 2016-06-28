@@ -90,15 +90,15 @@ int main()
         scanf("%lld%lld",&a,&b);
         int kk=findPrimeFactor(pc,pn,a,len);
         llint  big,inverMod,ans=1;
-        //for(int j=0;j<=kk;j++)
-            //cout<<pn[j]<<" "<<pc[j]<<endl;
         for(int j=0; j<=kk; j++)
         {
-            big=(bigmod((llint)pn[j],llint(pc[j]*b+1))-1)%M;
+            big=((bigmod((llint)pn[j],llint(pc[j]*b+1))%M)-1)%M;
             inverMod=bigmod((llint)(pn[j]-1),(llint)(M-2));
-            //cout<<big<<" "<<inverMod<<endl;
-            ans=(ans*((big*inverMod)%M))%M;
+            ans=(ans%M*((big*inverMod)%M))%M;
+
         }
+        if(ans<0)
+            ans=M+ans;
         printf("Case %d: %lld\n",i,ans);
     }
     return 0;
