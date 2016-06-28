@@ -11,6 +11,7 @@ int PrintOdd(int i,int &n,int a[])
             a[j]=a[j+1];
     }
     PrintOdd(i+1,n,a);
+    return 0;
 }
 int main()
 {
