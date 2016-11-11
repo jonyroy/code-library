@@ -22,6 +22,56 @@ typedef pair<int,int>            pint;
 typedef pair<lint,lint>          plint;
 typedef pair<llint,llint>        pllint;
 
+
+/*The Debugger Template used Here is written by Bidhan Roy*/
+
+template < typename F, typename S >
+ostream& operator << ( ostream& os, const pair< F, S > & p )
+{
+    return os << "(" << p.first << ", " << p.second << ")";
+}
+
+template < typename T >
+ostream &operator << ( ostream & os, const vector< T > &v )
+{
+    os << "{";
+    typename vector< T > :: const_iterator it;
+    for( it = v.begin(); it != v.end(); it++ )
+    {
+        if( it != v.begin() ) os << ", ";
+        os << *it;
+    }
+    return os << "}";
+}
+
+template < typename T >
+ostream &operator << ( ostream & os, const set< T > &v )
+{
+    os << "[";
+    typename set< T > :: const_iterator it;
+    for ( it = v.begin(); it != v.end(); it++ )
+    {
+        if( it != v.begin() ) os << ", ";
+        os << *it;
+    }
+    return os << "]";
+}
+
+template < typename F, typename S >
+ostream &operator << ( ostream & os, const map< F, S > &v )
+{
+    os << "[";
+    typename map< F , S >::const_iterator it;
+    for( it = v.begin(); it != v.end(); it++ )
+    {
+        if( it != v.begin() ) os << ", ";
+        os << it -> first << " = " << it -> second ;
+    }
+    return os << "]";
+}
+#define deb(x) cerr << #x << " = " << x << endl;
+/*..........................................................................*/
+
 //int fx[]={0,-1,0,1};
 //int fy[]={-1,0,1,0};
 
@@ -35,15 +85,17 @@ llint bigMod(llint a,llint b,llint MOD)
         temp= (a*temp)%MOD;
     return temp;
 }
-int dist[30005];
-vector<int>adj[30005],weight[30005];
-int bfs()
+
+vector<int> adj[30005],weight[30005];
+int bfs(int start,int dist[])
 {
-    int visited[30005]={0};
+    bitset<30005> visited;
     queue<int> q;
-    q.push(0);
-    visited[0]=1;
-    dist[0]=0;
+    q.push(start);
+    visited[start]=true;
+    dist[start]=0;
+    int cost=0;
+    int node=0;
     while(!q.empty())
     {
         int u=q.front();
@@ -51,15 +103,20 @@ int bfs()
         for(int i=0;i<adj[u].size();i++)
         {
             int v=adj[u][i];
-            if(visited[v]==0)
+            if(!visited[v])
             {
-                visited[v]=1;
-                dist[v]=dist[u]+weight[u][v];
+                visited[v]=true;
+                dist[v]=dist[u]+weight[u][i];
+                if(cost<dist[v])
+                {
+                    cost=dist[v];
+                    node=v;
+                }
                 q.push(v);
             }
         }
     }
-
+    return node;
 }
 int main(int argc, char *argv[])
 {
@@ -67,13 +124,10 @@ int main(int argc, char *argv[])
    scanf("%d",&tc);
    for(int i=1;i<=tc;i++)
    {
+       printf("Case %d:\n",i);
        int n;
        scanf("%d",&n);
-       for(int j=0;j<=n;j++)
-       {
-           adj[j].clear();
-           dist[j]=0;
-       }
+
        for(int j=0;j<n-1;j++)
        {
            int u,v,w;
@@ -83,8 +137,27 @@ int main(int argc, char *argv[])
            weight[u].push_back(w);
            weight[v].push_back(w);
        }
-       bfs();
-       for(int j=)
+
+       int node,cost,dist[30005]={0},distanc[30005]={0};
+       int ln=bfs(0,dist);
+       int rn=bfs(ln,dist);
+       bfs(rn,distanc);
+       for(int j=0;j<n;j++)
+       {
+           int cmp=dist[ln]-dist[j];
+           if(cmp<0)
+            cmp=-cmp;
+           int kmp=distanc[rn]-distanc[j];
+           if(kmp<0)
+            kmp=-kmp;
+           cmp=max(kmp,cmp);
+           printf("%d\n",cmp);
+       }
+      for(int j=0;j<=n;j++)
+       {
+           adj[j].clear();
+           weight[j].clear();
+       }
    }
    return 0;
 }
