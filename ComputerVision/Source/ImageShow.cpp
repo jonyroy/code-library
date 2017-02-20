@@ -8,13 +8,13 @@
 using namespace std;
 int main()
 {
-    IplImage* MyImage=cvLoadImage("/home/jonyroy/ComputerVision/Picture/pic.jpg");
+  IplImage* MyImage = cvLoadImage("/home/jonyroy/Desktop/MyCodeLibrary/ComputerVision/Picture/10.jpg");
 //    cvNamedWindow("IamTufan",0);
-    cvNamedWindow("IamTufan",CV_WINDOW_AUTOSIZE);
-    cvShowImage("IamTufan",MyImage);
-    cvWaitKey(0);
-    cvReleaseImage(&MyImage);
-    cvDestroyWindow("MyImage");
-    return 0;
+  cvNamedWindow("IamTufan", CV_WINDOW_AUTOSIZE);
+  cvShowImage("IamTufan", MyImage);
+  cvWaitKey(0);
+  cvReleaseImage(&MyImage);
+  cvDestroyWindow("MyImage");
+  return 0;
 }
 

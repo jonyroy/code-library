@@ -8,25 +8,24 @@ def print_board(board):
 			if board[i*3+j] == 1:
 				print 'X',
 			elif board[i*3+j] == 0:
-				print 'O',	
+				print 'O',
 			elif board[i*3+j] != -1:
 				print board[i*3+j]-1,
 			else:
 				print ' ',
-			
+
 			if j != 2:
 				print " | ",
 		print
-		
+
 		if i != 2:
 			print "-----------------"
-		else: 
-			print 
-			
+		else:
+			print
+
 def print_instruction():
 	print "Please use the following cell numbers to make your move"
 	print_board([2,3,4,5,6,7,8,9,10])
-
 
 def get_input(turn):
 
@@ -42,7 +41,7 @@ def get_input(turn):
 				print_instruction()
 		except Exception as e:
 			print user + " is not a valid move! Please try again.\n"
-		
+
 def check_win(board):
 	win_cond = ((1,2,3),(4,5,6),(7,8,9),(1,4,7),(2,5,8),(3,6,9),(1,5,9),(3,5,7))
 	for each in win_cond:
@@ -59,12 +58,12 @@ def quit_game(board,msg):
 	quit()
 
 def main():
-	
+
 	# setup game
 	# alternate turns
 	# check if win or end
 	# quit and show the board
-	
+
 	print_instruction()
 
 	board = []
@@ -95,8 +94,8 @@ def main():
 		if move > 4:
 			winner = check_win(board)
 			if winner != -1:
-				out = "The winner is " 
-				out += "X" if winner == 1 else "O" 
+				out = "The winner is "
+				out += "X" if winner == 1 else "O"
 				out += " :)"
 				quit_game(board,out)
 			elif move == 9:
@@ -104,4 +103,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-	

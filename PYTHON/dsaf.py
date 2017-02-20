@@ -1,5 +1,7 @@
 import turtle
 
+turtle.title("My Turtle")
+turtle.setup(500, 500, 0, 0)
 def draw_square():
     ritu = turtle.Screen()
     #h=raw_input();
@@ -25,4 +27,4 @@ def draw_square():
 
 if __name__ == "__main__":
     draw_square()
-    help(turtle)
+    #help(turtle)
