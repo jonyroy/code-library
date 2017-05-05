@@ -1,18 +1,16 @@
 /*
 * Author: Jony Roy
-* Date: 16-07-2016
+* Date: 23-06-2016
 * Contact: jonyroyice@gmail.com
 */
 #include <bits/stdc++.h>
 #define PI              3.1415926535897932384
 #define EulerConstant   0.5772156649015328606
 #define CountBit(a)     __builtin_popcount(a)
-#define pb(x)          push_back(x)
-#define mp(x,y)          make_pair(x,y)
+#define p_b(x)          push_back(x)
+#define m_p(x)          make_pair(x)
 #define ft              first
 #define sd              second
-#define deb(x) cerr << #x << " = " << x << endl;
-
 using namespace std;
 typedef double                   ddd;
 typedef long long int            llint;
@@ -23,18 +21,42 @@ typedef unsigned long int        ulint;
 typedef pair<int,int>            pint;
 typedef pair<lint,lint>          plint;
 typedef pair<llint,llint>        pllint;
-int main()
+
+llint bigMod(llint a,llint b,llint MOD)
 {
-    int n,a[205];
-    cin>>n;
-    for(int i=1;i<=2*n;i++)
-        cin>>a[i];
-    sort(a+1,a+2*n+1);
-    int sum=0;
-    //for(int i=1;i<=2*n;i++)
-      //  cout<<a[i]<<" ";
-    for(int i=1;i<=2*n;i+=2)
-        sum+=a[i];
-    cout<<sum<<endl;
-    return 0;
+    if(b==0)
+        return 1;
+    llint temp=bigMod(a,b>>1,MOD);
+    temp=(temp*temp)%MOD;
+    if(b&1)
+        temp= (a*temp)%MOD;
+    return temp;
 }
+
+int main(int argc, char *argv[])
+{
+
+   llint n,x;
+   cin>>n>>x;
+   llint counter=0;
+   while(n)
+   {
+       string s;
+       int a;
+       cin>>s>>a;
+
+       if(s=="-")
+       {
+           if(a>x)
+            counter++;
+            else
+                x=x-a;
+       }
+       else
+        x+=a;
+       n--;
+   }
+   cout<<x<<" "<<counter<<endl;
+   return 0;
+}
+

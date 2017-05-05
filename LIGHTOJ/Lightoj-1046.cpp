@@ -62,6 +62,7 @@ int bfs(int x,int y,int k,int n,int m)
 }
 int main()
 {
+   
     int tc;
     scanf("%d",&tc);
     for(int i=1; i<=tc; i++)
